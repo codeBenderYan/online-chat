@@ -1,16 +1,18 @@
-package com.chat.random;
+package com.platform.chaotic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author yanjiajun
+ * @author YanJiaJun
+ * @version 1.0
+ * @date 2024/4/7 21:05:02
  */
 @SpringBootApplication
-public class OnlineChatApplication {
+public class PlatformChaoticApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OnlineChatApplication.class, args);
+        SpringApplication.run(PlatformChaoticApplication.class, args);
     }
 
 }
