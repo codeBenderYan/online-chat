@@ -1,5 +1,7 @@
 package com.platform.chaotic.model.po;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -11,10 +13,12 @@ import java.time.LocalDateTime;
  * @date 2024/4/7 21:48:30
  */
 @Data
+@TableName("user_info")
 @Schema(name = "用户信息表")
 public class UserInfoDO {
 
     @Schema(name="用户ID")
+    @TableId
     private String userId;
 
     @Schema(name="用户名")
@@ -27,7 +31,7 @@ public class UserInfoDO {
     private String gender;
 
     @Schema(name="年龄")
-    private int age;
+    private Integer age;
 
     @Schema(name="手机号码")
     private String phone;
@@ -42,7 +46,7 @@ public class UserInfoDO {
     private String createUser;
 
     @Schema(description="创建时间")
-    private LocalDateTime creatTime;
+    private LocalDateTime createTime;
 
     @Schema(description="更新人")
     private String updateUser;

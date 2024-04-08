@@ -1,8 +1,12 @@
 package com.platform.chaotic.controller;
 
+import com.platform.chaotic.mapper.UserInfoMapper;
+import com.platform.chaotic.model.po.UserInfoDO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +23,9 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/ping")
 public class TestController {
+
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     /**
      * 测试项目接口是否调用成功
@@ -38,6 +45,8 @@ public class TestController {
     @RequestMapping(method = RequestMethod.GET)
     @ApiResponse(responseCode = "200", description = "返回success，则表示调用成功。")
     public String testDemo() {
+        String admin = passwordEncoder.encode("admin");
+        System.out.println(admin);
         return "success";
     }
 }
