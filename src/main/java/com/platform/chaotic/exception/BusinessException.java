@@ -8,10 +8,11 @@ import java.io.Serial;
  * @date 2024/4/22 23:12:44
  */
 public class BusinessException extends RuntimeException{
-    
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public BusinessException() {}
+    public BusinessException(String message) {
+        super(message);
+    }
 }
