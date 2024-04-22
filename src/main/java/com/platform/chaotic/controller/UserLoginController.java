@@ -2,6 +2,7 @@ package com.platform.chaotic.controller;
 
 import com.platform.chaotic.model.dto.UserLoginDTO;
 import com.platform.chaotic.model.dto.UserLoginDetails;
+import com.platform.chaotic.util.JwtUtil;
 import jakarta.annotation.Resource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,7 +29,6 @@ public class UserLoginController {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userLoginDTO.getUsername(), userLoginDTO.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         UserLoginDetails loginDetails = (UserLoginDetails)authenticate.getPrincipal();
-        System.out.println(loginDetails);
-        return "success";
+        return JwtUtil.generateToken(loginDetails.getUsername());
     }
 }

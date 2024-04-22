@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="platform-chaotic" />
+        <module name="online-chat" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="online-chat" options="-parameters" />
       <module name="platform-chaotic" options="-parameters" />
     </option>
   </component>
